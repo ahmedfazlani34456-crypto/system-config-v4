@@ -1,16 +1,51 @@
-<script>
-    var password = prompt("Assalam-o-Alaikum Admin! Enter Master Key:");
-    if (password != "786") { 
-        alert("Unauthorized Access!");
-        window.location.href = "https://google.com";
-    }
-</script>
-<div style="background:#050505; color:#00ff00; text-align:center; font-family:monospace; padding:50px;">
-    <h1>ALEXA SUPER ADMIN PANEL</h1>
-    <p>Admin: ahmedfazlani34456</p>
-    <hr border="1">
-    <button onclick="alert('G-Drive Access Locked for Expired Users')">Manual G-Drive Lock</button>
-    <button onclick="alert('Auto-Subtitles & Dubbing Active')">CapCut Features</button>
-    <button onclick="alert('Islamic Greetings Enabled')">Voice Settings</button>
-    <p style="margin-top:20px; color:yellow;">Allah Behtar Karega - System is Online.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa Command Center</title>
+    <style>
+        body { background-color: #0a0a0a; color: #00ff41; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; }
+        .panel { border: 2px solid #00ff41; margin: 20px auto; width: 80%; padding: 20px; border-radius: 15px; box-shadow: 0 0 20px #00ff41; }
+        button { background: #00ff41; color: black; border: none; padding: 12px 25px; margin: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .status-on { color: #00ff41; font-weight: bold; }
+        .status-off { color: #ff0000; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <script>
+        var masterKey = prompt("Assalam-o-Alaikum Admin! Enter Secret Key:");
+        if (masterKey !== "786") {
+            alert("Unauthorized! Redirecting...");
+            window.location.href = "https://google.com";
+        }
+    </script>
+
+    <div class="panel">
+        <h1>ALEXA V4 - MASTER CONTROL</h1>
+        <p>Current Admin: <strong>AhmedFazlani</strong></p>
+        <hr color="#00ff41">
+        
+        <h3>User Management & Security</h3>
+        <button onclick="updateStatus('Subscription Locked')">Lock Expired Users (G-Drive)</button>
+        <button onclick="alert('License Key Generated for New Client')">Generate License</button>
+
+        <h3>CapCut & Video Features</h3>
+        <button onclick="alert('Auto-Subtitle Mode: Enabled')">Auto-Subtitles</button>
+        <button onclick="alert('Dubbing Module: Active')">Free Dubbing</button>
+
+        <h3>System Status</h3>
+        <p>Surveillance: <span class="status-on">ACTIVE</span></p>
+        <p>Ghost Mode: <span class="status-on">ENFORCED</span></p>
+        
+        <p style="margin-top:30px; font-style: italic;">"Allah Behtar Karega, Mayos Na Ho."</p>
+    </div>
+
+    <script>
+        function updateStatus(msg) {
+            alert("Alexa Protocol: " + msg);
+            console.log("Action Logged for Admin.");
+        }
+    </script>
+</body>
+</html>
