@@ -3,51 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEXA INTEL | SUPER ADMIN</title>
+    <title>Alexa Admin Panel - Vantablack</title>
     <style>
-        body { background: #000; color: #d4af37; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; }
-        header { padding: 20px; border-bottom: 2px solid #d4af37; background: #0a0a0a; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px; }
-        .card { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; transition: 0.3s; }
-        .card:hover { border-color: #d4af37; box-shadow: 0 0 15px #d4af37; }
-        button { background: #d4af37; color: #000; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 15px; width: 100%; }
-        .status { color: #0f0; font-size: 0.8em; margin-top: 10px; }
+        body { background-color: #050505; color: #00ff00; font-family: 'Courier New', monospace; text-align: center; padding: 50px; }
+        .box { border: 2px solid #00ff00; padding: 20px; display: inline-block; border-radius: 10px; box-shadow: 0 0 15px #00ff00; }
+        h1 { text-shadow: 2px 2px #ff0000; }
+        button { background: #00ff00; color: black; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; margin: 10px; }
+        .status { color: #ffcc00; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>ALEXA COMMAND CENTER v7.0</h1>
-        <p>Master Admin: Authorized Personnel Only</p>
-    </header>
 
-    <div class="grid-container">
-        <div class="card">
-            <h3>Surveillance & Ghost Mode</h3>
-            <p>Access Remote Cameras & Erase Objects</p>
-            <button onclick="alert('Connecting to Vantablack Proxy...')">Live Feeds</button>
-            <div class="status">System: Secure</div>
-        </div>
+    <script>
+        var password = prompt("Assalam-o-Alaikum Admin! Enter Master Key:");
+        if (password != "786") { 
+            alert("Unauthorized Access! Security Protocol Initiated.");
+            window.location.href = "https://google.com";
+        }
+    </script>
 
-        <div class="card">
-            <h3>Intelligence Database</h3>
-            <p>NADRA / Passport / Family Tree Search</p>
-            <button onclick="alert('Accessing Global Databases...')">Global Search</button>
-            <div class="status">Encryption: 7-Layer Active</div>
-        </div>
-
-        <div class="card">
-            <h3>Business Automation</h3>
-            <p>Excel Sheets / Auto-Billing / Office CRM</p>
-            <button onclick="alert('Initializing Remote Office...')">Open Dashboard</button>
-            <div class="status">Status: Online</div>
-        </div>
-
-        <div class="card">
-            <h3>Security & Identity</h3>
-            <p>G-Drive Lock / Self-Destruct History</p>
-            <button style="background: #800; color: #fff;" onclick="alert('Wiping History...')">Wipe All Logs</button>
-            <div class="status">Identity: Hidden</div>
+    <div class="box">
+        <h1>ALEXA COMMAND CENTER</h1>
+        <p>Status: <span id="status">Secure & Online</span></p>
+        <hr>
+        
+        <h3>Core Features</h3>
+        <button onclick="alert('Surveillance Active - Scanners Online')">Ghost Mode</button>
+        <button onclick="alert('Connecting to G-Drive...')">Lock Data</button>
+        <button onclick="alert('Opening Quran & Tajweed Module...')">Religious Guide</button>
+        
+        <div class="status">
+            <p>MashaAllah, System is under your control.</p>
+            <p>Admin: ahmedfazlani34456-crypto</p>
         </div>
     </div>
+
+    <script>
+        console.log("Alexa System V4.0 Loaded.");
+    </script>
 </body>
 </html>
