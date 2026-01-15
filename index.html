@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexa Command Center</title>
+    <meta charset="UTF-8"><title>Alexa Master Pro</title>
     <style>
-        body { background-color: #0a0a0a; color: #00ff41; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; }
-        .panel { border: 2px solid #00ff41; margin: 20px auto; width: 80%; padding: 20px; border-radius: 15px; box-shadow: 0 0 20px #00ff41; }
-        button { background: #00ff41; color: black; border: none; padding: 12px 25px; margin: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .status-on { color: #00ff41; font-weight: bold; }
-        .status-off { color: #ff0000; font-weight: bold; }
+        body { background:#000; color:#0f0; font-family:sans-serif; text-align:center; }
+        .btn { background:#0f0; color:#000; padding:15px; margin:10px; border:none; cursor:pointer; width:250px; font-weight:bold; border-radius:10px; }
+        .admin-box { border:2px solid #0f0; display:inline-block; padding:20px; margin-top:50px; border-radius:15px; }
     </style>
 </head>
 <body>
     <script>
-        var masterKey = prompt("Assalam-o-Alaikum Admin! Enter Secret Key:");
-        if (masterKey !== "786") {
-            alert("Unauthorized! Redirecting...");
-            window.location.href = "https://google.com";
-        }
+        var key = prompt("Master Admin Key:");
+        if(key !== "786") { window.location.href="https://google.com"; }
     </script>
 
-    <div class="panel">
-        <h1>ALEXA V4 - MASTER CONTROL</h1>
-        <p>Current Admin: <strong>AhmedFazlani</strong></p>
-        <hr color="#00ff41">
-        
-        <h3>User Management & Security</h3>
-        <button onclick="updateStatus('Subscription Locked')">Lock Expired Users (G-Drive)</button>
-        <button onclick="alert('License Key Generated for New Client')">Generate License</button>
-
-        <h3>CapCut & Video Features</h3>
-        <button onclick="alert('Auto-Subtitle Mode: Enabled')">Auto-Subtitles</button>
-        <button onclick="alert('Dubbing Module: Active')">Free Dubbing</button>
-
-        <h3>System Status</h3>
-        <p>Surveillance: <span class="status-on">ACTIVE</span></p>
-        <p>Ghost Mode: <span class="status-on">ENFORCED</span></p>
-        
-        <p style="margin-top:30px; font-style: italic;">"Allah Behtar Karega, Mayos Na Ho."</p>
+    <div class="admin-box">
+        <h1>ALEXA COMMAND CENTER (V4)</h1>
+        <p>Admin Name: <input type="text" id="adminName" value="AhmedFazlani" style="background:none; border:1px solid #0f0; color:#0f0;"></p>
+        <hr>
+        <button class="btn" onclick="runFeature('surveillance')">Ghost Mode (Surveillance)</button><br>
+        <button class="btn" onclick="runFeature('gdrive_lock')">Lock G-Drive (Expired Users)</button><br>
+        <button class="btn" onclick="runFeature('capcut')">CapCut Dubbing & Subtitles</button><br>
+        <button class="btn" onclick="runFeature('quran')">Quran & Dua (Tajweed)</button><br>
+        <button class="btn" onclick="window.location.href='/admin-panel'">Super Admin Management</button>
     </div>
 
     <script>
-        function updateStatus(msg) {
-            alert("Alexa Protocol: " + msg);
-            console.log("Action Logged for Admin.");
+        function runFeature(type) {
+            // Ye logic server (main.py) ko command bhejega
+            fetch('/execute/' + type)
+            .then(res => res.json())
+            .then(data => alert("Alexa: " + data.message))
+            .catch(err => alert("Error: Connect main.py first!"));
         }
     </script>
 </body>
