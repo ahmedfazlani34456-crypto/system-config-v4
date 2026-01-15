@@ -1,33 +1,38 @@
-import os
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Alexa Master Pro</title>
+    <style>
+        body { background:#000; color:#0f0; font-family:sans-serif; text-align:center; }
+        .btn { background:#0f0; color:#000; padding:15px; margin:10px; border:none; cursor:pointer; width:250px; font-weight:bold; border-radius:10px; }
+        .admin-box { border:2px solid #0f0; display:inline-block; padding:20px; margin-top:50px; border-radius:15px; }
+    </style>
+</head>
+<body>
+    <script>
+        var key = prompt("Master Admin Key:");
+        if(key !== "786") { window.location.href="https://google.com"; }
+    </script>
 
-class AlexaAI:
-    def __init__(self, admin_name="AhmedFazlani", language="Urdu"):
-        self.admin = admin_name
-        self.lang = language
-        self.is_licensed = True
+    <div class="admin-box">
+        <h1>ALEXA COMMAND CENTER (V4)</h1>
+        <p>Admin Name: <input type="text" id="adminName" value="AhmedFazlani" style="background:none; border:1px solid #0f0; color:#0f0;"></p>
+        <hr>
+        <button class="btn" onclick="runFeature('surveillance')">Ghost Mode (Surveillance)</button><br>
+        <button class="btn" onclick="runFeature('gdrive_lock')">Lock G-Drive (Expired Users)</button><br>
+        <button class="btn" onclick="runFeature('capcut')">CapCut Dubbing & Subtitles</button><br>
+        <button class="btn" onclick="runFeature('quran')">Quran & Dua (Tajweed)</button><br>
+        <button class="btn" onclick="window.location.href='/admin-panel'">Super Admin Management</button>
+    </div>
 
-    def greet(self):
-        if self.lang == "Urdu":
-            return f"MashaAllah, Assalam-o-Alaikum {self.admin}! Allah Hain, fikar na karein. Aaj kya hukum hai?"
-        return f"Hello {self.admin}, how can I help you today?"
-
-    def check_user_access(self, subscription_active):
-        if not subscription_active:
-            self.lock_data()
-            return "User subscription expired. G-Drive access locked. Allah behtar karega."
-        return "Access Granted. All systems green."
-
-    def lock_data(self):
-        # Logic to disconnect G-Drive API
-        print("CRITICAL: G-Drive encryption key rotated. User is now locked out.")
-
-    def capcut_features(self):
-        return {
-            "auto_subtitle": "Active",
-            "free_dubbing": "Active",
-            "status": "InshaAllah, processing video."
+    <script>
+        function runFeature(type) {
+            // Ye logic server (main.py) ko command bhejega
+            fetch('/execute/' + type)
+            .then(res => res.json())
+            .then(data => alert("Alexa: " + data.message))
+            .catch(err => alert("Error: Connect main.py first!"));
         }
-
-# Initializing Alexa
-alexa = AlexaAI()
-print(alexa.greet())
+    </script>
+</body>
+</html>
