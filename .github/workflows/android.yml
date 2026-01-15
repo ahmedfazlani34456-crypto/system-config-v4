@@ -1,0 +1,14 @@
+name: Alexa APK Build
+on:
+  workflow_dispatch: # Isse aap jab chahein manually build kar sakte hain
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Preparing Alexa APK
+        run: |
+          echo "Connecting to Dashboard: https://ahmedfazlani34456-crypto.github.io/system-config-v4/"
+          echo "Packaging Surveillance & Automation Tools..."
+          echo "Build Process Started..."
